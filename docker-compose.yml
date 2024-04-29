@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=mysql://reflectias:P@ssw0rd123d@db:3306/my_data
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=P@ssw0rd12345
+      - MYSQL_DATABASE=my_data
+      - MYSQL_USER=reflectias
+      - MYSQL_PASSWORD=P@ssw0rd123
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
