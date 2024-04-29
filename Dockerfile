@@ -3,7 +3,11 @@ FROM python:3.9
 COPY requirements.txt /app/requirements.txt
 
 WORKDIR /app
-
+# Установка необходимых зависимостей
+RUN apt-get update && apt-get install -y \
+    libmysqlclient-dev \
+    python3-dev
+    
 RUN pip install -r requirements.txt
 
 COPY . /app
