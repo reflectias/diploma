@@ -28,7 +28,6 @@ if __name__ == "__main__":
     app.run(debug=True)"""
 @app.route("/")
 def hello():
-    visitsCounter = db.incr('visitsCounter')
     html = "<H1> Hello!!! </H1>"
 
 if __name__=="__main__":
