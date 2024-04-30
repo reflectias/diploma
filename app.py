@@ -2,8 +2,8 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 
-"""app = Flask(__name__)
-@app.route("/")
+app = Flask(__name__)
+"""@app.route("/")
 def hello():
     #html = "<H1> Hello!!! </H1>"
     return 'Hello, World!'
