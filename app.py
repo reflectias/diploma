@@ -7,10 +7,10 @@ app = Flask(__name__)
 def display_data():
     # Connect to MySQL
     mydb = mysql.connector.connect(
-        host="your_host",
-        user="your_username",
-        password="your_password",
-        database="your_database"
+        host="127.0.0.1",
+        user="reflectias",
+        password="12345",
+        database="my_data"
     )
 
     mycursor = mydb.cursor()
