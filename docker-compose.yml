@@ -7,8 +7,6 @@ services:
       - "5000:5000"
     depends_on:
       - db
-    environment:
-      - DATABASE_URL=mysql://reflectias:P@ssw0rd123d@db:3306/my_data
 
   db:
     image: mysql:5.7

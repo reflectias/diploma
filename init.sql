@@ -1,6 +1,6 @@
 -- Create a database
-CREATE DATABASE IF NOT EXISTS your_database;
-USE your_database;
+CREATE DATABASE IF NOT EXISTS my_data;
+USE my_data;
 
 -- Create a table
 CREATE TABLE IF NOT EXISTS users (
