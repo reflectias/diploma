@@ -1,8 +1,30 @@
-from flask import Flask, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
-
+from flask import Flask, render_template
+import mysql.connector
 
 app = Flask(__name__)
+
+@app.route('/')
+def display_data():
+    # Connect to MySQL
+    mydb = mysql.connector.connect(
+        host="your_host",
+        user="your_username",
+        password="your_password",
+        database="your_database"
+    )
+
+    mycursor = mydb.cursor()
+
+    # Execute a query to fetch data
+    mycursor.execute("SELECT * FROM your_table")
+    data = mycursor.fetchall()
+
+    return render_template('index.html', data=data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
 """@app.route("/")
 def hello():
     #html = "<H1> Hello!!! </H1>"
@@ -12,7 +34,7 @@ if __name__=="__main__":
     app.run(host="0.0.0.0",port=5000)
     #app.run(debug=True)"""
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://reflectias:P@ssw0rd123@db:3306/my_data"
+"""app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://reflectias:P@ssw0rd123@db:3306/my_data"
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -36,3 +58,8 @@ def create_user():
 if __name__ == "__main__":
     #app.run(debug=True)
     app.run(host="0.0.0.0",port=5000)
+    
+    from flask import Flask, request, jsonify
+    from flask_sqlalchemy import SQLAlchemy
+    
+    """

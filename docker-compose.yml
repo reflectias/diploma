@@ -17,6 +17,8 @@ services:
       - MYSQL_DATABASE=my_data
       - MYSQL_USER=reflectias
       - MYSQL_PASSWORD=P@ssw0rd123
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/
 
   nginx:
     image: nginx:latest
