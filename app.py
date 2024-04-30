@@ -16,7 +16,7 @@ def display_data():
     mycursor = mydb.cursor()
 
     # Execute a query to fetch data
-    mycursor.execute("SELECT * FROM your_table")
+    mycursor.execute("SELECT * FROM users")
     data = mycursor.fetchall()
 
     return render_template('index.html', data=data)
