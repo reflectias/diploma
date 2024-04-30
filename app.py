@@ -3,6 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
+@app.route("/")
+def hello():
+    #html = "<H1> Hello!!! </H1>"
+    return 'Hello, World!'
+
+if __name__=="__main__":
+    app.run(host="0.0.0.0",port=5000)
+    #app.run(debug=True)
+
 """app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://reflectias:P@ssw0rd123@db:3306/my_data"
 db = SQLAlchemy(app)
 
@@ -26,10 +35,3 @@ def create_user():
 
 if __name__ == "__main__":
     app.run(debug=True)"""
-@app.route("/")
-def hello():
-    html = "<H1> Hello!!! </H1>"
-
-if __name__=="__main__":
-    app.run(host="0.0.0.0",port=5000)
-    #app.run(debug=True)
