@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-
-app = Flask(__name__)
+"""app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://reflectias:P@ssw0rd123@db:3306/my_data"
 db = SQLAlchemy(app)
 
@@ -24,4 +23,11 @@ def create_user():
     return jsonify({"id": user.id, "name": user.name, "email": user.email})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True)"""
+@app.route("/")
+def hello():
+    visitsCounter = db.incr('visitsCounter')
+    html = "<H1> Hello!!! </H1>"
+
+if __name__=="__main__":
+    app.run(host="0.0.0.0",port=80)
