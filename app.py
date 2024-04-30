@@ -2,12 +2,12 @@ from flask import Flask, render_template
 import mysql.connector
 
 app = Flask(__name__)
-
+#template_folder='template'
 @app.route('/')
 def display_data():
     # Connect to MySQL
     mydb = mysql.connector.connect(
-        host="127.0.0.1",
+        host="db",
         user="reflectias",
         password="12345",
         database="my_data"
@@ -22,8 +22,9 @@ def display_data():
     return render_template('index.html', data=data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    #app.run(debug=True)
+    app.run(host="0.0.0.0")
+    #,port=5000
 
 """@app.route("/")
 def hello():
