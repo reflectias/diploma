@@ -34,5 +34,5 @@ def create_user():
     return jsonify({"id": user.id, "name": user.name, "email": user.email})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    #app.run(debug=True)
     app.run(host="0.0.0.0",port=5000)
